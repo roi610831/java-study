@@ -1,5 +1,7 @@
 package cleric;
 
+improt java.util.Random;
+
 //聖職者クラス
 public class Cleric {
 
@@ -24,8 +26,8 @@ public class Cleric {
 	public int pray(int sec) {
 		System.out.println(this.name + "は" + sec + "秒祈った");
 		int recoveryAmount = sec + new Random().nextInt(3);
-		int actual = Math.min(this.MAXHP - this.hp, recoveryAmount);
-		this.hp = this.hp + actual;
+		int actual = Math.min(this.MAXMP - this.mp, recoveryAmount);
+		this.mp = this.mp + actual;
 		System.out.println(this.name + "はMPが" + actual + "回復した");
 		return actual;
 	}
