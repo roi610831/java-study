@@ -1,6 +1,6 @@
 package cleric;
 
-improt java.util.Random;
+import java.util.Random;
 
 //聖職者クラス
 public class Cleric {
