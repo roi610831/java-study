@@ -23,15 +23,11 @@ public class Cleric {
 	//祈る(祈った秒数+0～2ポイントのMPを回復)
 	public int pray(int sec) {
 		System.out.println(this.name + "は" + sec + "秒祈った");
-		int r = new java.util.Random().nextInt(3);
-		int recoveryAmount = sec + r;
-		this.mp = this.mp + recoveryAmount;
-		//mpが最大MPよりも高くならないための処理
-		if(this.mp >= this.MAXMP) {
-			this.mp = this.MAXMP;
-			System.out.println(this.name + "のMPは最大！");
-		}
-		System.out.println(this.name + "は" + recoveryAmount + "ポイントのMPが回復した！");
-		return recoveryAmount;
+		int recoveryAmount = sec + new Random().nextInt(3);
+		int actual = Math.min(this.MAXHP - this.hp, recoveryAmount);
+		this.hp = this.hp + actual;
+		System.out.println(this.name + "はMPが" + actual + "回復した");
+		return actual;
 	}
+	
 }
